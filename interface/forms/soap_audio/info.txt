@@ -1,0 +1,6 @@
+name=Audio2Note SOAP
+description=A SOAP note form with dedicated fields for transcription and remarks, used by the Audio2Note module.
+url=interface/forms/soap_audio/new.php
+reports_url=interface/forms/soap_audio/report.php
+table_name=form_soap_audio
+patient_encounter=1
