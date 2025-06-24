@@ -25,4 +25,4 @@ The system provides a clear and auditable trail for every transaction. The `form
 
 A formal Business Associate Agreement (BAA) is required with the external transcription service, contractually obligating them to protect PHI in accordance with HIPAA. It is the responsibility of the Covered Entity deploying the module to ensure such an agreement is in place.
 
-For more detailed information on our HIPAA compliance policies, please refer to the `Hipaa documentation.md` file.
+For more detailed information on our HIPAA compliance policies, please refer to the [HIPAA Documentation](Hipaa%20documentation.md) file.
