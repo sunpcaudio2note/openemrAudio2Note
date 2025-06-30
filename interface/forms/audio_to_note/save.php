@@ -165,11 +165,29 @@ try {
     }
 }
 
-// --- Redirect ---
-if ($errorMessage) {
-    $_SESSION['form_error'] = $errorMessage;
+// --- Redirect or Respond ---
+$isAjax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
+
+if ($isAjax) {
+    header('Content-Type: application/json');
+    if ($errorMessage) {
+        http_response_code(500);
+        echo json_encode(['error' => $errorMessage]);
+    } else {
+        echo json_encode([
+            'success' => true,
+            'form_id' => $form_id_to_link,
+            'job_id' => $job_id ?? null,
+            'encounter_id' => $encounter_id,
+            'message' => $successMessage
+        ]);
+    }
 } else {
-    $_SESSION['form_success'] = $successMessage;
+    if ($errorMessage) {
+        $_SESSION['form_error'] = $errorMessage;
+    } else {
+        $_SESSION['form_success'] = $successMessage;
+    }
+    formJump("view.php?id=" . ($form_id_to_link ?? '') . "&encounter=" . urlencode($encounter_id));
 }
-formJump("view.php?id=" . ($form_id_to_link ?? '') . "&encounter=" . urlencode($encounter_id));
 exit;

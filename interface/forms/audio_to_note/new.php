@@ -76,15 +76,34 @@ if (!$patient_id) {
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-12" id="audio_file_container">
-                <label for="audio_file"><?php echo xlt('Audio File'); ?>:</label>
+            <div class="col-sm-12">
+                <p><strong><?php echo xlt('Step 1: Provide Audio'); ?></strong></p>
+                <p><em><?php echo xlt('Please choose one of the following options.'); ?></em></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6" id="audio_file_container">
+                <label for="audio_file"><?php echo xlt('Option A: Upload a pre-recorded audio file'); ?>:</label>
                 <input type="file" name="audio_file" id="audio_file" required accept="audio/*">
+            </div>
+            <div class="col-sm-6" id="recorder_container">
+                <label><?php echo xlt('Option B: Record audio directly'); ?>:</label>
+                <div>
+                    <button type="button" id="start-recording" class="btn btn-danger"><?php echo xlt('Record'); ?></button>
+                    <button type="button" id="stop-recording" class="btn btn-secondary" disabled><?php echo xlt('Stop'); ?></button>
+                </div>
+                <div style="margin-top: 10px;">
+                    <audio id="audio_playback" controls style="display: none;"></audio>
+                </div>
             </div>
         </div>
 
+        <hr style="margin-top: 20px; margin-bottom: 20px;">
+
         <div class="row" style="margin-top: 10px;">
             <div class="col-sm-12">
-                <label for="note_type"><?php echo xlt('Note Type'); ?>:</label>
+                <p><strong><?php echo xlt('Step 2: Choose Note Type'); ?></strong></p>
+                <label for="note_type"><?php echo xlt('After providing audio, select the desired note type'); ?>:</label>
                 <select name="note_type" id="note_type" class="form-control">
                     <option value="soap"><?php echo xlt('SOAP Note'); ?></option>
                     <option value="history_physical"><?php echo xlt('History and Physical Note'); ?></option>
@@ -126,7 +145,7 @@ if (!$patient_id) {
 
         <div class="row" style="margin-top: 20px;">
             <div class="col-sm-12 text-center">
-                <button type="submit" id="submit_button" class="btn btn-primary"><?php echo xlt('Upload and Transcribe'); ?></button>
+                <button type="submit" id="upload-button" class="btn btn-primary" disabled><?php echo xlt('Upload and Transcribe'); ?></button>
                 <button type="button" class="btn btn-secondary" onclick="top.restoreSession()"><?php echo xlt('Cancel'); ?></button>
             </div>
         </div>
@@ -139,16 +158,19 @@ if (!$patient_id) {
        const audioFileContainer = document.getElementById('audio_file_container');
        const audioFileInput = document.getElementById('audio_file');
        const transcriptionParametersContainer = document.getElementById('transcription_parameters_container');
-       const submitButton = document.getElementById('submit_button');
+       const recorderContainer = document.getElementById('recorder_container');
+       const submitButton = document.getElementById('upload-button');
 
        function toggleElements() {
            if (noteTypeSelect.value === 'summary') {
                audioFileContainer.style.display = 'none';
+               recorderContainer.style.display = 'none';
                audioFileInput.removeAttribute('required');
                transcriptionParametersContainer.style.display = 'none';
                submitButton.textContent = '<?php echo xlt('Summarize'); ?>';
            } else {
                audioFileContainer.style.display = 'block';
+               recorderContainer.style.display = 'block';
                audioFileInput.setAttribute('required', 'required');
                transcriptionParametersContainer.style.display = 'block';
                submitButton.textContent = '<?php echo xlt('Upload and Transcribe'); ?>';
@@ -160,6 +182,7 @@ if (!$patient_id) {
        toggleElements();
    });
 </script>
+<script src="<?php echo $GLOBALS['webroot'] ?>/interface/forms/audio_to_note/recorder.js"></script>
 
 </body>
 </html>

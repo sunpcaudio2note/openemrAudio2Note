@@ -1,6 +1,0 @@
-1. Inactivate the module in the OpenEMR Module 
-1. Copy the uninstall.php script (under the uninstall folder) to your root OpenEMR folder
-2. Run https://<your_openemr_url>/uninstall.php
-3. Follow the instructions
-
-!! Of note, if you choose to delete the module forms, all notes that were generated with the module will be erased.
