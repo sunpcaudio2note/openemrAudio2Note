@@ -15,19 +15,29 @@ require_once($GLOBALS["srcdir"] . "/api.inc.php");
 
 function history_physical_report($pid, $encounter, $cols, $id)
 {
-    // Fetch the history and physical note content
-    $form_data = formFetch("form_history_physical", $id);
+    $cols = 1; // force always 1 column
+    $count = 0;
+    $data = formFetch("form_history_physical", $id);
+    if ($data) {
+        print "<table><tr>";
+        foreach ($data as $key => $value) {
+            if ($key == "id" || $key == "pid" || $key == "user" || $key == "groupname" || $key == "authorized" || $key == "activity" || $key == "date" || $value == "" || $value == "0000-00-00 00:00:00") {
+                continue;
+            }
 
-    echo "<div class='form-report'>";
-    echo "<h4>History and Physical Note</h4>";
+            if ($value == "on") {
+                $value = "yes";
+            }
 
-    if ($form_data) {
-        // Display the content of the history_physical column
-        echo nl2br(htmlspecialchars($form_data['history_physical']));
-    } else {
-        // Display a message if the form data was not found
-        echo "<p>Could not load History and Physical Note content.</p>";
+            $key = ucwords(str_replace("_", " ", $key));
+            print "<td><span class=bold>" . xlt($key) . ": </span><span class=text>" . nl2br(text($value)) . "</span></td>";
+            $count++;
+            if ($count == $cols) {
+                $count = 0;
+                print "</tr><tr>\n";
+            }
+        }
     }
 
-    echo "</div>";
+    print "</tr></table>";
 }
