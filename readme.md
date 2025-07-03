@@ -9,8 +9,40 @@ This module streamlines the clinical documentation process by allowing you to co
 ## What It Does
 
 *   **Audio to Note:** Upload an audio file of your patient encounter, and the module will automatically generate a custom **Audio2Note SOAP Note** or a **History and Physical Note**, complete with suggested ICD-10, CPT, and E/M codes.
+
+    ![Example of a generated SOAP Note](docs/openemr/images/SOAP.png "Generated SOAP Note")
+    *Example of a generated SOAP Note.*
+
+    ![Example of a generated History and Physical Note](docs/openemr/images/historyphysical.png "Generated History and Physical Note")
+    *Example of a generated History and Physical Note.*
+
 *   **Chart Summarization:** Quickly get up to speed on a patient by generating a summary of their three most recent clinical notes.
-*   **Seamless Integration:** The generated notes are automatically filed into the correct patient's chart, even if you have moved on to other tasks.
+
+    ![Chart Summarization Feature](docs/openemr/images/summary.png "Chart Summarization")
+    *Generate a summary of recent clinical notes.*
+
+*   **Seamless Integration:** The generated notes are automatically filed into the correct patient's chart, even if you have moved on to other tasks. The module provides real-time updates on the status of your note.
+
+    ![Real-time update showing note processing](docs/openemr/images/realTimeUpdates.png "Real-time update notification")
+    *Real-time update showing the note is being processed.*
+
+    ![Real-time update showing note completion](docs/openemr/images/realTimeUpdates2.png "Real-time update notification")
+    *Real-time update showing the note has been successfully created.*
+
+
+## How It Works
+
+Using the module is a simple, multi-step process integrated directly into the patient encounter screen.
+
+1.  **Navigate to Audio2Note:** From within a patient encounter, navigate to `Clinical` --> `Audio2Note`.
+
+    ![Audio2Note Menu Location](docs/openemr/images/1menu.png "Audio2Note Menu Location")
+
+2.  **Provide Audio & Choose Note Type:** You can either upload a pre-recorded audio file or record one in real-time. Then, select the type of note you want to generate from the dropdown menu.
+
+    ![File Upload and Note Type Selection](docs/openemr/images/2uploadfile.png "File Upload and Note Type Selection")
+
+3.  **Generate Note:** Click "Upload and Transcribe." There is no need to wait for the process to finish. You can proceed to your next patient or task in OpenEMR. The note will be populated in the appropriate chart and note form as long as your OpenEMR instance is active.
 
 ## Why Use Audio2Note?
 
@@ -54,5 +86,4 @@ The module uses a simple, two-step installation process:
 We are continuously working to expand the module's capabilities. Future features include:
 *   A transcript-only function for dictation.
 
-For more detailed information on how to use the module, please refer to the [How to Use](docs/How%20to%20Use.md) file.
 For more detailed information on our HIPAA compliance policies, please refer to the [HIPAA Documentation](docs/Hipaa%20documentation.md) file.
