@@ -63,7 +63,7 @@ class ModuleManagerListener extends AbstractModuleActionListener
     private function enable($modId, $currentActionStatus): string
     {
         try {
-            $updateSql = "UPDATE background_services SET execute_interval = 5, active = 1 WHERE name = 'AudioToNote_Polling'";
+            $updateSql = "UPDATE background_services SET execute_interval = 1, active = 1 WHERE name = 'AudioToNote_Polling'";
             sqlStatement($updateSql);
         } catch (\Throwable $e) {
             error_log("OpenemrAudio2Note Listener: Failed to update AudioToNote_Polling interval/active status on enable: " . $e->getMessage());

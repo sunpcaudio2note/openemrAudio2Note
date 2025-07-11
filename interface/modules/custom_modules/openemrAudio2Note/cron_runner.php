@@ -75,6 +75,5 @@ function runAudioToNotePolling()
     }
 }
 
-// This part allows direct execution for testing, but OpenEMR's cron will call the function.
 
 ?>

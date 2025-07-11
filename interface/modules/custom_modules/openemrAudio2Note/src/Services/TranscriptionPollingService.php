@@ -26,8 +26,6 @@ use OpenEMR\Modules\OpenemrAudio2Note\Logic\EncryptionKeyManager;
 use OpenEMR\Common\Database\Database; // For database access
 use OpenEMR\Common\Logging\SystemLogger; // For logging
 
-// Need to implement OpenEMR's background service interface or extend a base class
-// Example based on common patterns, exact interface/base class might vary by OpenEMR version
 // Assuming a simple execute method is called by the scheduler.
 
 class TranscriptionPollingService
