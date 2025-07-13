@@ -1,3 +1,7 @@
+# Recent Updates (Last updated 7/13/2025)
+
+Swagger REST API: https://www.audio2note.org/?page_id=262
+
 # OpenEMR Audio2Note Integration
 
 ## What It Is
