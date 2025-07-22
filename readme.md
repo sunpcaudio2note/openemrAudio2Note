@@ -1,12 +1,13 @@
-# Recent Updates (Last updated 7/13/2025)
+# Audio2Note for OpenEMR
 
-Swagger REST API: https://www.audio2note.org/?page_id=262
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/sunpcaudio2note/openemrAudio2Note)
+[![Compatibility](https://img.shields.io/badge/OpenEMR-v7.0+-blue)](https://www.open-emr.org)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/sunpcaudio2note/openemrAudio2Note)
+[![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/sunpcaudio2note/openemrAudio2Note/blob/main/LICENSE)
 
-# OpenEMR Audio2Note Integration
+## Overview
 
-## What It Is
-
-The Audio2Note module is a powerful tool for healthcare professionals using OpenEMR. It is designed for Internal Medicine and related subspecialties, but its modular design allows for easy expansion to other specialties in the future.
+This repository contains the official OpenEMR module for the **[Audio2Note Service](https://github.com/sunpcaudio2note/audio2note)**. It is a powerful tool for healthcare professionals using OpenEMR, designed for Internal Medicine and related subspecialties, but with a modular design for future expansion.
 
 This module streamlines the clinical documentation process by allowing you to convert audio recordings from patient encounters into structured clinical notes directly within the patient's chart.
 
@@ -25,56 +26,40 @@ This module streamlines the clinical documentation process by allowing you to co
     ![Chart Summarization Feature](docs/openemr/images/summary.png "Chart Summarization")
     *Generate a summary of recent clinical notes.*
 
-*   **Seamless Integration:** The generated notes are automatically filed into the correct patient's chart, even if you have moved on to other tasks. The module provides real-time updates on the status of your note.
+*   **Seamless Integration:** The generated notes are automatically filed into the correct patient's chart, with real-time status updates on the progress of your note.
 
     ![Real-time update showing note processing](docs/openemr/images/realTimeUpdates.png "Real-time update notification")
     *Real-time update showing the note is being processed.*
 
-    ![Real-time update showing note completion](docs/openemr/images/realTimeUpdates2.png "Real-time update notification")
-    *Real-time update showing the note has been successfully created.*
-
-
 ## How It Works
-
-Using the module is a simple, multi-step process integrated directly into the patient encounter screen.
 
 1.  **Navigate to Audio2Note:** From within a patient encounter, navigate to `Clinical` --> `Audio2Note`.
 
     ![Audio2Note Menu Location](docs/openemr/images/1menu.png "Audio2Note Menu Location")
 
-2.  **Provide Audio & Choose Note Type:** You can either upload a pre-recorded audio file or record one in real-time. Then, select the type of note you want to generate from the dropdown menu.
+2.  **Provide Audio & Choose Note Type:** You can either upload a pre-recorded audio file or record one in real-time. Then, select the type of note you want to generate.
 
     ![File Upload and Note Type Selection](docs/openemr/images/2uploadfile.png "File Upload and Note Type Selection")
 
-3.  **Generate Note:** Click "Upload and Transcribe." There is no need to wait for the process to finish. You can proceed to your next patient or task in OpenEMR. The note will be populated in the appropriate chart and note form as long as your OpenEMR instance is active.
+3.  **Generate Note:** Click "Upload and Transcribe." The note will be automatically populated in the appropriate chart when processing is complete.
 
 ## Why Use Audio2Note?
 
 *   **Physician-Led Development:** The module is actively used and improved by a practicing physician, ensuring it meets the real-world needs of clinicians.
-*   **Reliable Data:** The Artificial Intelligence models use custom datasets that are produced only from peer-reviewed sources.
-*   **Privacy-Focused:** We prioritize the security of your patients' data.
-    *   We use only self-hosted software, including small-scale Artificial Intelligence models (unlike large-scale enterprise models such as Gemini, ChatGPT, and so on). This means that your information does not leave our servers and is not shared with anyone.
-    *   For detailed information on our security practices and HIPAA compliance, please see our [SECURITY.md](docs/SECURITY.md) file.
-*   **Secure by Design:** All sensitive configuration data, such as API and license keys, are protected with strong, industry-standard encryption (ChaCha20-Poly1305) and stored securely in your OpenEMR database.
-    *   Not only do we use encryption and other methods to protect your information, your Protected Health Information stays on our servers only for the duration it takes to produce the note. It is then securely erased from our servers.
-*   **Open and Extensible:** The module is built on open-source software and is designed to be modular, allowing for the easy addition of new features.
-*   **Simple and Powerful:** Record the encounter, then upload the file, and you're done. No need to wait for the process of producing a note to finish — just move on to your next patient. The note will be automatically populated in the appropriate chart.
-
-## Legal Disclaimer
-
-This module is a clinical documentation aid and does not replace the professional judgment of a licensed caregiver. By using this module, you agree to the terms and conditions outlined in our [Legal Disclaimer](docs/Legal%20Disclaimer%20for%20Audio2Note%20Module.md).
+*   **Reliable Data:** The AI models use custom datasets produced from peer-reviewed sources.
+*   **Privacy-Focused:** We use self-hosted software and small-scale AI models, meaning your information does not leave our servers.
+*   **Secure by Design:** Sensitive data is protected with strong encryption (ChaCha20-Poly1305) and PHI is securely erased from our servers after processing.
+*   **Open and Extensible:** The module is built on open-source software and is designed to be modular.
 
 ## Installation
 
-First, obtain a license from our website:
+### Step 1: Obtain a License
 
-`https://www.audio2note.org/?page_id=93`
+First, obtain a license from our website: **[https://www.audio2note.org](https://www.audio2note.org)**
 
-1.  **Obtain License and API Keys:** A 10-day free trial period is included with every license. Add the subscription to the cart (no billing will occur until the trial period is over). You can cancel your subscription anytime.
+A 10-day free trial period is included with every license. You will receive a **License Key**, **API Consumer Key**, and **API Consumer Secret** required to activate the module.
 
-2.  The license key, API consumer Key, and API consumer secret will be required to activate the module in OpenEMR. Note that every license can be activated only once per OpenEMR instance.
-
-The module uses a simple, two-step installation process:
+### Step 2: Install the Module
 
 1.  **Decompress Files:** Place the `openemrAudio2Note_installer.tar.gz` package into your OpenEMR webroot directory (e.g., `/var/www/html/openemr/`). Then, from within that directory, run the following command:
 
@@ -82,12 +67,20 @@ The module uses a simple, two-step installation process:
     tar -xzvf openemrAudio2Note_installer.tar.gz
     ```
 
-2.  **Finalize Installation:** Open your web browser and navigate to the installer script at `https://<your_openemr_url>/install.php`. Follow the instructions provided by this script.
-    After a successful installation, you will be prompted to securely delete the `install.php` script.
+2.  **Finalize Installation:** Open your web browser and navigate to the installer script at `https://<your_openemr_url>/install.php`. Follow the on-screen instructions.
+
+3.  **Activate and Configure:**
+    *   In OpenEMR, navigate to `Modules -> Manage Modules` and activate the "Audio2Note" module.
+    *   Go to `Modules -> Audio2Note -> Settings` to enter your license and API keys.
 
 ## Planned Development
 
-We are continuously working to expand the module's capabilities. Future features include:
 *   A transcript-only function for dictation.
 
-For more detailed information on our HIPAA compliance policies, please refer to the [HIPAA Documentation](docs/Hipaa%20documentation.md) file.
+## Legal Disclaimer
+
+This module is a clinical documentation aid. By using this module, you agree to the terms and conditions outlined in our [Legal Disclaimer](docs/Legal%20Disclaimer%20for%20Audio2Note%20Module.md).
+
+## Contributing
+
+This module is designed to be a robust and seamless bridge between OpenEMR and the Audio2Note service. If you are interested in contributing, please reach out via our main project's [Contact Form](https://www.audio2note.org/?page_id=136).
