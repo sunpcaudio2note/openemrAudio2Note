@@ -73,10 +73,6 @@ A 10-day free trial period is included with every license. You will receive a **
     *   In OpenEMR, navigate to `Modules -> Manage Modules` and activate the "Audio2Note" module.
     *   Go to `Modules -> Audio2Note -> Settings` to enter your license and API keys.
 
-## Planned Development
-
-*   A transcript-only function for dictation.
-
 ## Legal Disclaimer
 
 This module is a clinical documentation aid. By using this module, you agree to the terms and conditions outlined in our [Legal Disclaimer](docs/Legal%20Disclaimer%20for%20Audio2Note%20Module.md).
