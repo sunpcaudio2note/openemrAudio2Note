@@ -72,6 +72,7 @@ A 10-day free trial period is included with every license. You will receive a **
 3.  **Activate and Configure:**
     *   In OpenEMR, navigate to `Modules -> Manage Modules` and activate the "Audio2Note" module.
     *   Go to `Modules -> Audio2Note -> Settings` to enter your license and API keys.
+    *   Go to `Admin -> Forms -> Forms Administration` and enable forms audio_to_note, history_physical, recent_visit_summary, and soap_audio
 
 ## Legal Disclaimer
 
