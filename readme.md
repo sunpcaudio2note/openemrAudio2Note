@@ -16,7 +16,7 @@ This module streamlines the clinical documentation process by allowing you to co
 *   **Audio to Note:** Upload an audio file of your patient encounter, and the module will automatically generate a custom **Audio2Note SOAP Note** or a **History and Physical Note**, complete with suggested ICD-10, CPT, and E/M codes.
 
     ![Example of a generated SOAP Note](docs/openemr/images/SOAP.png "Generated SOAP Note")
-    *Example of a generated SOAP Note.*
+             *Example of a generated SOAP Note.*
 
     ![Generated SOAP Note on Encounter Page](docs/openemr/images/SOAP_main.png "Generated SOAP Note on main page")
     *Example of a generated SOAP Note as seen on main encounter page.*
