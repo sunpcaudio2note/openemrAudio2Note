@@ -18,6 +18,9 @@ This module streamlines the clinical documentation process by allowing you to co
     ![Example of a generated SOAP Note](docs/openemr/images/SOAP.png "Generated SOAP Note")
     *Example of a generated SOAP Note.*
 
+    ![Generated SOAP Note on Encounter Page](docs/openemr/images/SOAP_main.png "Generated SOAP Note on main page")
+    *Example of a generated SOAP Note as seen on main encounter page.*
+    
     ![Example of a generated History and Physical Note](docs/openemr/images/historyphysical.png "Generated History and Physical Note")
     *Example of a generated History and Physical Note.*
 
